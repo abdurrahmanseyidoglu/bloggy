@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Doctrine\DBAL\Schema\View;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\Types\Collection;
 
 class PostController extends Controller
 {
@@ -14,7 +15,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::where('active', '=', 1)->orderBy('created_at', 'desc')->paginate(10);
-//        dd($posts);
+//        dd($posts[0]->user);
         return view('home', compact('posts'));
     }
 
