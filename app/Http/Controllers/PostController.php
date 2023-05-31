@@ -14,8 +14,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::where('active', '=', 1)->orderBy('created_at', 'desc')->paginate(10);
-//        dd($posts[0]->user);
+        $posts = Post::where('active', '=', 1)
+            ->orderBy('created_at', 'desc')
+            ->paginate(5);
+//        dd($posts);
         return view('home', compact('posts'));
     }
 
